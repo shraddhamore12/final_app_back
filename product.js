@@ -5,8 +5,8 @@ const router = express.Router()
 router.get('/',(req,res)=>{
     const connection=db.connect()
     const statement=`select * from product`
-    connection.query(statement,(error,result)=>{
-   
+    connection.query(statement,(error,data)=>{
+        const result = {}
         if(error) {
             result['status'] ='error'
             result['error']=error
